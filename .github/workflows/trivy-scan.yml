@@ -1,13 +1,16 @@
 name: Trivy Security Scan
 
 on:
-  workflow_dispatch:
+  workflow_dispatch:  # Позволяет запускать вручную из Actions → Run workflow
 
 jobs:
-  trivy-scan:
+  scan:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Run Trivy scan using Docker
+      - name: Run Trivy security scan
         run: |
-          docker run --rm aquasecurity/trivy:latest image --exit-code 1 --severity CRITICAL grpc/go
+          docker run --rm aquasecurity/trivy:latest image \
+            --exit-code 1 \
+            --severity CRITICAL \
+            grpc/go
