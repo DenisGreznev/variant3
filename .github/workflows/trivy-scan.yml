@@ -1,7 +1,7 @@
 name: Trivy Security Scan
 
 on:
-  workflow_dispatch:   # Позволяет запускать workflow вручную из Actions -> Run workflow
+  workflow_dispatch:
 
 jobs:
   trivy-scan:
@@ -9,10 +9,10 @@ jobs:
 
     steps:
       - name: Run Trivy scan on grpc/go image
-        uses: aquasecurity/trivy-action@v0.9.2
+        uses: aquasecurity/trivy-action@v0.11.0
         with:
           image-ref: grpc/go
           format: 'table'
-          exit-code: '1'          # Возвращать ошибку при уязвимостях с уровнем severity >= критического
-          severity: 'CRITICAL'    # Проверяем только критические уязвимости
+          exit-code: '1'
+          severity: 'CRITICAL'
           ignore-unfixed: false
