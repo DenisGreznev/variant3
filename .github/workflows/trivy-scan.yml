@@ -10,4 +10,4 @@ jobs:
     steps:
       - name: Run Trivy scan using Docker
         run: |
-          docker run --rm aquasecurity/trivy image --exit-code 1 --severity CRITICAL grpc/go
+          docker run --rm aquasecurity/trivy:latest image --exit-code 1 --severity CRITICAL grpc/go
