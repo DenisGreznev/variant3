@@ -9,7 +9,7 @@ jobs:
 
     steps:
       - name: Run Trivy scan on grpc/go image
-        uses: aquasecurity/trivy-action@v0.63.0/Linux/64bit
+        uses: aquasecurity/trivy-action@v0.63.0
         with:
           image-ref: grpc/go
           format: 'table'
